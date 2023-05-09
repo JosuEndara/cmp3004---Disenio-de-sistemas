@@ -464,7 +464,7 @@ public class SubastaManager {
                             double value = Double.parseDouble(ApuestaC3.getText());
                             if (!mapa.get(chCliente3.getValue()).modificarPrecio(value)) {
                                 logC3.appendText("el valor no es superior al aceptado\n");
-                            } else {
+                            } else { 
                                 logC1.appendText(cliente3.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
                                 logC2.appendText(cliente3.getName() + " ha incrementado el precio a: "
