@@ -55,6 +55,18 @@ public class SubastaManager {
     private TextArea logC2;
     @FXML
     private TextArea logC3;
+    @FXML
+    private Label name1;
+    @FXML
+    private Label name2;
+    @FXML
+    private Label name3;
+    @FXML
+    private Button btnName1;
+    @FXML
+    private Button btnName2;
+    @FXML
+    private Button btnName3;
 
     public SubastaManager() {
         mapa = new HashMap<>();
@@ -153,5 +165,10 @@ public class SubastaManager {
         lbAC1.setVisible(true);
         lbAC2.setVisible(true);
         lbAC3.setVisible(true);
+    }
+    public void manageLabels(boolean flag){
+        name1.setVisible(flag);
+        name2.setVisible(flag);
+        name3.setVisible(flag);
     }
 }

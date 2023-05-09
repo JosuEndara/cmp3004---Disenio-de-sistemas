@@ -4,7 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "type": "java",
+            "name": "ProyectoFinal",
+            "request": "launch",
+            "mainClass": "ProyectoFinal",
+            "projectName": "cmp3004---Disenio-de-sistemas_31e6a0c8",
+            "vmArgs": " --module-path \"C:/Users/JuanV/OneDrive/Documentos/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
         {
             "type": "java",
             "name": "ProyectoFinal",

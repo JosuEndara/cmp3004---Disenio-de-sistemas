@@ -19,7 +19,7 @@
       <Label layoutX="22.0" layoutY="98.0" text="Precio Base" />
       <Label layoutX="22.0" layoutY="131.0" text="Tiempo" />
       <Button layoutX="579.0" layoutY="106.0" mnemonicParsing="false" onAction="#empezarTimer" text="Empezar" />
-      <Label layoutX="132.0" layoutY="283.0" text="Cliente 1" />
+      <Label fx:id="name1" layoutX="131.0" layoutY="283.0" text="Cliente 1" />
       <Spinner layoutX="80.0" layoutY="318.0" />
       <Button layoutX="104.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
       <Button layoutX="112.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
@@ -27,7 +27,7 @@
       <TextField fx:id="ApuestaC1" layoutX="86.0" layoutY="437.0" />
       <Button fx:id="btnApuestaC1" layoutX="135.0" layoutY="477.0" mnemonicParsing="false" text="Button" />
       <TextArea fx:id="logC1" layoutX="62.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="374.0" layoutY="283.0" text="Cliente 2" />
+      <Label fx:id="name2" layoutX="374.0" layoutY="283.0" text="Cliente 2" />
       <Spinner layoutX="322.0" layoutY="318.0" />
       <Button layoutX="346.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
       <Button layoutX="354.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
@@ -35,7 +35,7 @@
       <TextField fx:id="ApuestaC2" layoutX="328.0" layoutY="437.0" />
       <Button fx:id="btnApuestaC2" layoutX="377.0" layoutY="477.0" mnemonicParsing="false" text="Button" />
       <TextArea fx:id="logC2" layoutX="304.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="626.0" layoutY="283.0" text="Cliente 3" />
+      <Label fx:id="name3" layoutX="626.0" layoutY="283.0" text="Cliente 3" />
       <Spinner layoutX="574.0" layoutY="318.0" />
       <Button layoutX="598.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
       <Button layoutX="606.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
@@ -44,7 +44,13 @@
       <Button fx:id="btnApuestaC3" layoutX="629.0" layoutY="477.0" mnemonicParsing="false" text="Button" />
       <TextArea fx:id="logC3" layoutX="556.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
       <ChoiceBox fx:id="chBox" layoutX="551.0" layoutY="52.0" prefWidth="150.0" />
-      <Label layoutX="324.0" layoutY="238.0" text="Tiempo:" />
-      <Label fx:id="lbtimer" layoutX="381.0" layoutY="238.0" text="---" />
+      <Label layoutX="325.0" layoutY="229.0" text="Tiempo:" />
+      <Label fx:id="lbtimer" layoutX="377.0" layoutY="229.0" text="---" />
+      <TextField fx:id="txtName1" layoutX="80.0" layoutY="255.0" />
+      <TextField fx:id="txtName2" layoutX="321.0" layoutY="255.0" />
+      <TextField fx:id="txtName3" layoutX="574.0" layoutY="255.0" />
+      <Button fx:id="btnName1" layoutX="128.0" layoutY="287.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnName2" layoutX="366.0" layoutY="287.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnName3" layoutX="623.0" layoutY="287.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
