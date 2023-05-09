@@ -30,4 +30,8 @@ public class Cliente {
     public boolean getInscritoItem(){
         return inscritoItem;//si es true, puede ver pero no pagar
     }
+    public void restore(){
+        inscritoSubasta = false;
+        inscritoItem = false;
+    }
 }

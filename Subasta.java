@@ -30,10 +30,10 @@ class Subasta {
         return tiempo;
     }
     public boolean modificarPrecio(double precioBase){
-        boolean changed = false;//si el usuario ingreso un numero mayor al base, retorna true.
+        //si el usuario ingreso un numero mayor al base, retorna true.
         if(this.precioBase< precioBase){
             this.precioBase = precioBase;
-            return changed;
+            return true;
         } else{
             return false;
         }
