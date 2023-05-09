@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SubastaManager">
+   <children>
+      <Label layoutX="140.0" layoutY="28.0" text="Subasta" />
+      <TextField fx:id="txtProducto" layoutX="87.0" layoutY="61.0" />
+      <TextField fx:id="txtPrecioBase" layoutX="86.0" layoutY="94.0" />
+      <TextField fx:id="txtTiempo" layoutX="87.0" layoutY="127.0" />
+      <Button layoutX="135.0" layoutY="168.0" mnemonicParsing="false" onAction="#ingresarItem" text="ADD" />
+      <Label layoutX="22.0" layoutY="65.0" text="Producto" />
+      <Label layoutX="22.0" layoutY="98.0" text="Precio Base" />
+      <Label layoutX="22.0" layoutY="131.0" text="Tiempo" />
+      <Button layoutX="579.0" layoutY="106.0" mnemonicParsing="false" onAction="#empezarTimer" text="Empezar" />
+      <Label layoutX="132.0" layoutY="283.0" text="Cliente 1" />
+      <Spinner layoutX="80.0" layoutY="318.0" />
+      <Button layoutX="104.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
+      <Button layoutX="112.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
+      <Label fx:id="lbAC1" layoutX="32.0" layoutY="441.0" text="Apuesta" />
+      <TextField fx:id="ApuestaC1" layoutX="86.0" layoutY="437.0" />
+      <Button fx:id="btnApuestaC1" layoutX="135.0" layoutY="477.0" mnemonicParsing="false" text="Button" />
+      <TextArea fx:id="logC1" layoutX="62.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="374.0" layoutY="283.0" text="Cliente 2" />
+      <Spinner layoutX="322.0" layoutY="318.0" />
+      <Button layoutX="346.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
+      <Button layoutX="354.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
+      <Label fx:id="lbAC2" layoutX="274.0" layoutY="441.0" text="Apuesta" />
+      <TextField fx:id="ApuestaC2" layoutX="328.0" layoutY="437.0" />
+      <Button fx:id="btnApuestaC2" layoutX="377.0" layoutY="477.0" mnemonicParsing="false" text="Button" />
+      <TextArea fx:id="logC2" layoutX="304.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="626.0" layoutY="283.0" text="Cliente 3" />
+      <Spinner layoutX="574.0" layoutY="318.0" />
+      <Button layoutX="598.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
+      <Button layoutX="606.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
+      <Label fx:id="lbAC3" layoutX="526.0" layoutY="441.0" text="Apuesta" />
+      <TextField fx:id="ApuestaC3" layoutX="580.0" layoutY="437.0" />
+      <Button fx:id="btnApuestaC3" layoutX="629.0" layoutY="477.0" mnemonicParsing="false" text="Button" />
+      <TextArea fx:id="logC3" layoutX="556.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="chBox" layoutX="551.0" layoutY="52.0" prefWidth="150.0" />
+      <Label layoutX="324.0" layoutY="238.0" text="Tiempo:" />
+      <Label fx:id="lbtimer" layoutX="381.0" layoutY="238.0" text="---" />
+   </children>
+</AnchorPane>
