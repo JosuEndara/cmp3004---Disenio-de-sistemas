@@ -20,12 +20,13 @@ public class SubastaManager {
     private Map<String, Subasta> mapa;
     private Map<String, Cliente> mapaCliente;
     private Timer timer;
-    boolean timerActive = false;
-    int timeLeft = 10;
+    private boolean timerActive = false;
+    private int timeLeft = 10;
     private Cliente cliente1;
     private Cliente cliente2;
     private Cliente cliente3;
     private Alert alert;
+    private String winner;
 
     @FXML
     private TextField txtProducto;
@@ -125,7 +126,7 @@ public class SubastaManager {
     @FXML
     void ingresarItem() {
         if (txtProducto.getText().isEmpty() || txtPrecioBase.getText().isEmpty() || txtTiempo.getText().isEmpty()) {
-            mensaje("Un campo se encuentra vacio");
+            mensajeError("Un campo se encuentra vacio");
         } else {
             mapa.put(txtProducto.getText(), new Subasta(txtProducto.getText(),
                     Double.parseDouble(txtPrecioBase.getText()), Integer.parseInt(txtTiempo.getText())));
@@ -156,13 +157,18 @@ public class SubastaManager {
                         timer.cancel();
                         Platform.runLater(() -> {
                             lbtimer.setText("00:00:00");
-                            mensaje("Subasta por item " + item + " ha termiando");
+                            mensaje("Subasta por item " + item + " ha termiando\n"  + winner + " lo ha comprado por "  + mapa.get(item).getPrecioBase());
                             timerActive = false;
                             btnStart.setVisible(true);
                             chBox.getItems().remove(item);
                             chCliente1.getItems().remove(item);
                             chCliente2.getItems().remove(item);
                             chCliente3.getItems().remove(item);
+                            chBox.setValue(null);
+                            chCliente1.setValue(null);
+                            chCliente2.setValue(null);
+                            chCliente3.setValue(null);
+
                         });
                         deactivateClients();
                         cliente1.restore();
@@ -177,13 +183,19 @@ public class SubastaManager {
                 }
             }, 0, 1000);
         } else {
-            mensaje("Elija alguna opcion");
+            mensajeError("Elija alguna opcion");
         }
 
     }
 
     public void mensaje(String mensaje) {
         alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+    public void mensajeError(String mensaje){
+        alert = new Alert(AlertType.WARNING);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
@@ -271,12 +283,16 @@ public class SubastaManager {
             btnItem1.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    if(!(chCliente1.getSelectionModel().getSelectedItem() == null)){
-                        cliente1.setInscritoItem(true);
-                        mensaje("Se ha inscrito al item");
-                    } else{
-                        mensaje("No se ha ingresado subasta");
-                    }                    
+                    if(chCliente1.getValue().equals(chBox.getValue())){
+                        if(!(chCliente1.getSelectionModel().getSelectedItem() == null)){
+                            cliente1.setInscritoItem(true);
+                            mensaje("Se ha inscrito al item");
+                        } else{
+                            mensajeError("No se ha ingresado subasta");
+                        } 
+                    }else{
+                        mensajeError("El item a suscribir debe coincidir con el que se va a subastar");
+                    }                   
                 }
             });
             btnIngresarC1.setOnAction(new EventHandler<ActionEvent>() {
@@ -286,7 +302,7 @@ public class SubastaManager {
                         cliente1.setInscritoSubasta(true);
                         mensaje("Se ha inscrito a la subasta");
                     }else{
-                        mensaje("Primero tiene que inscribirse a un item");
+                        mensajeError("Primero tiene que inscribirse a un item");
                     }
                 }
             });
@@ -297,11 +313,15 @@ public class SubastaManager {
                         try {
                             double value = Double.parseDouble(ApuestaC1.getText());
                             if(!mapa.get(chCliente1.getValue()).modificarPrecio(value)){
-                                mensaje("el valor no es superior al aceptado");
+                                mensajeError("el valor ingresado es inferior al aceptado");
                             }
                             else{
-                                logC1.setText("Precio a Competir: " + mapa.get(chCliente1.getValue()).getPrecioBase());
-                            }
+                                logC1.appendText(cliente1.getName() + " ha incrementado el precio a: " + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
+                                logC2.appendText(cliente1.getName() + " ha incrementado el precio a: " + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
+                                logC3.appendText(cliente1.getName() + " ha incrementado el precio a: " + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
+                                winner = cliente1.getName();
+                                
+                        }
                         } catch (Exception e) {
                             // TODO: handle exception
                         }
@@ -329,12 +349,17 @@ public class SubastaManager {
             btnItem2.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    if(!(chCliente2.getSelectionModel().getSelectedItem() == null)){
-                        cliente2.setInscritoItem(true);
-                        mensaje("Se ha inscrito al item");
-                    } else{
-                        mensaje("No se ha ingresado subasta");
-                    } 
+                    if(chCliente2.getValue().equals(chBox.getValue())){
+                        if(!(chCliente2.getSelectionModel().getSelectedItem() == null)){
+                            cliente2.setInscritoItem(true);
+                            mensaje("Se ha inscrito al item");
+                        } else{
+                            mensajeError("No se ha ingresado subasta");
+                        } 
+                    }else{
+                        mensajeError("El item a suscribir debe coincidir con el que se va a subastar");
+                    }
+                    
                 }
             });
             btnIngresarC2.setOnAction(new EventHandler<ActionEvent>() {
@@ -344,7 +369,7 @@ public class SubastaManager {
                         cliente2.setInscritoSubasta(true);
                         mensaje("Se ha inscrito a la subasta");
                     }else{
-                        mensaje("Primero tiene que inscribirse a un item");
+                        mensajeError("Primero tiene que inscribirse a un item");
                     }
                 }
             });
@@ -355,10 +380,13 @@ public class SubastaManager {
                         try {
                             double value = Double.parseDouble(ApuestaC2.getText());
                             if(!mapa.get(chCliente2.getValue()).modificarPrecio(value)){
-                                mensaje("el valor no es superior al aceptado");
+                                mensajeError("el valor no es superior al aceptado");
                             }
                             else{
-                                logC2.setText("Precio a Competir: " + mapa.get(chCliente2.getValue()).getPrecioBase());
+                                logC1.appendText(cliente2.getName() + " ha incrementado el precio a: " + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
+                                logC2.appendText(cliente2.getName() + " ha incrementado el precio a: " + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
+                                logC3.appendText(cliente2.getName() + " ha incrementado el precio a: " + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
+                                winner = cliente2.getName();
                             }
                         } catch (Exception e) {
                             // TODO: handle exception
@@ -384,12 +412,16 @@ public class SubastaManager {
             btnItem3.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    if(!(chCliente3.getSelectionModel().getSelectedItem() == null)){
-                        cliente3.setInscritoItem(true);
-                        mensaje("Se ha inscrito al item");
-                    } else{
-                        mensaje("No se ha ingresado subasta");
-                    } 
+                    if(chCliente3.getValue().equals(chBox.getValue())){
+                        if(!(chCliente3.getSelectionModel().getSelectedItem() == null)){
+                            cliente3.setInscritoItem(true);
+                            mensaje("Se ha inscrito al item");
+                        } else{
+                            mensajeError("No se ha ingresado subasta");
+                        } 
+                    }else{
+                        mensajeError("El item a suscribir debe coincidir con el que se va a subastar");
+                    }
                 }
             });
             btnIngresarC3.setOnAction(new EventHandler<ActionEvent>() {
@@ -413,7 +445,11 @@ public class SubastaManager {
                                 mensaje("el valor no es superior al aceptado");
                             }
                             else{
-                                logC1.setText("Precio a Competir: " + mapa.get(chCliente3.getValue()).getPrecioBase());
+                                logC1.appendText(cliente3.getName() + " ha incrementado el precio a: " + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
+                                logC2.appendText(cliente3.getName() + " ha incrementado el precio a: " + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
+                                logC3.appendText(cliente3.getName() + " ha incrementado el precio a: " + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
+                                winner = cliente3.getName();
+                                //logC1.setText("Precio a Competir: " + mapa.get(chCliente3.getValue()).getPrecioBase());
                             }
                         } catch (Exception e) {
                             // TODO: handle exception

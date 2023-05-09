@@ -19,22 +19,22 @@
       <Label layoutX="22.0" layoutY="131.0" text="Tiempo" />
       <Button fx:id="btnStart" layoutX="579.0" layoutY="106.0" mnemonicParsing="false" onAction="#empezarTimer" text="Empezar" />
       <Label fx:id="name1" layoutX="131.0" layoutY="291.0" text="Cliente 1" />
-      <Button fx:id="btnIngresarC1" layoutX="104.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
-      <Button fx:id="btnItem1" layoutX="112.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
+      <Button fx:id="btnIngresarC1" layoutX="96.0" layoutY="363.0" mnemonicParsing="false" text="Suscribir a Subasta" />
+      <Button fx:id="btnItem1" layoutX="105.0" layoutY="399.0" mnemonicParsing="false" text="Suscribir a Item" />
       <Label fx:id="lbAC1" layoutX="32.0" layoutY="441.0" text="Apuesta" />
       <TextField fx:id="ApuestaC1" layoutX="86.0" layoutY="437.0" />
       <Button fx:id="btnApuestaC1" layoutX="109.0" layoutY="477.0" mnemonicParsing="false" text="Ingresar Valor" />
       <TextArea fx:id="logC1" layoutX="62.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
       <Label fx:id="name2" layoutX="373.0" layoutY="291.0" text="Cliente 2" />
-      <Button fx:id="btnIngresarC2" layoutX="346.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
-      <Button fx:id="btnItem2" layoutX="354.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
+      <Button fx:id="btnIngresarC2" layoutX="338.0" layoutY="363.0" mnemonicParsing="false" text="Suscribir a Subasta" />
+      <Button fx:id="btnItem2" layoutX="348.0" layoutY="399.0" mnemonicParsing="false" text="Suscribir a Item" />
       <Label fx:id="lbAC2" layoutX="274.0" layoutY="441.0" text="Apuesta" />
       <TextField fx:id="ApuestaC2" layoutX="328.0" layoutY="437.0" />
       <Button fx:id="btnApuestaC2" layoutX="351.0" layoutY="477.0" mnemonicParsing="false" text="Ingresar Valor" />
       <TextArea fx:id="logC2" layoutX="304.0" layoutY="522.0" prefHeight="200.0" prefWidth="200.0" />
       <Label fx:id="name3" layoutX="626.0" layoutY="283.0" text="Cliente 3" />
-      <Button fx:id="btnIngresarC3" layoutX="598.0" layoutY="363.0" mnemonicParsing="false" text="ingresar subasta" />
-      <Button fx:id="btnItem3" layoutX="606.0" layoutY="399.0" mnemonicParsing="false" text="Ingresar item" />
+      <Button fx:id="btnIngresarC3" layoutX="591.0" layoutY="363.0" mnemonicParsing="false" text="Suscribir a Subasta" />
+      <Button fx:id="btnItem3" layoutX="600.0" layoutY="399.0" mnemonicParsing="false" text="Suscribir a Item" />
       <Label fx:id="lbAC3" layoutX="526.0" layoutY="441.0" text="Apuesta" />
       <TextField fx:id="ApuestaC3" layoutX="580.0" layoutY="437.0" />
       <Button fx:id="btnApuestaC3" layoutX="604.0" layoutY="477.0" mnemonicParsing="false" text="Ingresar Valor" />
@@ -45,9 +45,9 @@
       <TextField fx:id="txtName1" layoutX="80.0" layoutY="255.0" />
       <TextField fx:id="txtName2" layoutX="321.0" layoutY="255.0" />
       <TextField fx:id="txtName3" layoutX="574.0" layoutY="255.0" />
-      <Button fx:id="btnName1" layoutX="129.0" layoutY="287.0" mnemonicParsing="false" onAction="#getClient1" text="Button" />
-      <Button fx:id="btnName2" layoutX="371.0" layoutY="287.0" mnemonicParsing="false" onAction="#getClient2" text="Button" />
-      <Button fx:id="btnName3" layoutX="623.0" layoutY="287.0" mnemonicParsing="false" onAction="#getClient3" text="Button" />
+      <Button fx:id="btnName1" layoutX="102.0" layoutY="287.0" mnemonicParsing="false" onAction="#getClient1" text="Ingresar Usuario" />
+      <Button fx:id="btnName2" layoutX="340.0" layoutY="287.0" mnemonicParsing="false" onAction="#getClient2" text="Ingresar Usuario" />
+      <Button fx:id="btnName3" layoutX="597.0" layoutY="287.0" mnemonicParsing="false" onAction="#getClient3" text="Ingresar Usuario" />
       <ChoiceBox fx:id="chCliente1" layoutX="79.0" layoutY="326.0" prefWidth="150.0" />
       <ChoiceBox fx:id="chCliente2" layoutX="322.0" layoutY="326.0" prefWidth="150.0" />
       <ChoiceBox fx:id="chCliente3" layoutX="574.0" layoutY="326.0" prefWidth="150.0" />
