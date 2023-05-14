@@ -9,8 +9,16 @@
             "name": "ProyectoFinal",
             "request": "launch",
             "mainClass": "ProyectoFinal",
+            "projectName": "cmp3004---Disenio-de-sistemas_755285e8",
+            "vmArgs": " --module-path \"C:/Program Files/Java/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "ProyectoFinal",
+            "request": "launch",
+            "mainClass": "ProyectoFinal",
             "projectName": "cmp3004---Disenio-de-sistemas_31e6a0c8",
-            "vmArgs": " --module-path \"C:/Users/JuanV/OneDrive/Documentos/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": " --module-path \"C:/Program Files/Java/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -18,14 +26,14 @@
             "request": "launch",
             "mainClass": "ProyectoFinal",
             "projectName": "ProyectoFinal_7437a48b",
-            "vmArgs": " --module-path \"C:/Users/JuanV/OneDrive/Documentos/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": " --module-path \"C:/Program Files/Java/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "vmArgs": " --module-path \"C:/Users/JuanV/OneDrive/Documentos/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": " --module-path \"C:/Program Files/Java/javafx-sdk-19.0.2.1/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
