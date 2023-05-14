@@ -1,4 +1,6 @@
 import java.io.BufferedWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -108,6 +110,14 @@ public class SubastaManager {
         mapa = new HashMap<>();
         mapaCliente = new HashMap<>();
     }
+    public String getTime(long currTime){
+        long currentTimeMillis = currTime;
+        Date currentDate = new Date(currentTimeMillis);
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String formattedTime = timeFormat.format(currentDate);
+        return formattedTime;
+
+    }
 
     public void initialize() {
         deactivateClients();
@@ -123,6 +133,7 @@ public class SubastaManager {
         btnItem1.setVisible(false);
         btnItem2.setVisible(false);
         btnItem3.setVisible(false);
+        
 
     }
 
@@ -165,7 +176,7 @@ public class SubastaManager {
                                     try {
                                         BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
                                         writer.write("Subasta por item " + item + " ha terminado\n" + winner + " lo ha comprado por "
-                                        + mapa.get(item).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                        + mapa.get(item).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                         writer.close();
                                       } catch (IOException ex) {
                                         ex.printStackTrace();
@@ -303,7 +314,7 @@ public class SubastaManager {
                                 mensaje("Se ha inscrito al item");
                                 try {
                                     BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
-                                    writer.write("Se ha inscrito al item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                                    writer.write("Se ha inscrito al item " + chBox.getValue() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                     writer.close();
                                   } catch (IOException ex) {
                                     ex.printStackTrace();
@@ -329,7 +340,7 @@ public class SubastaManager {
                         mensaje("Se ha inscrito a la subasta");
                         try {
                             BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
-                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                             writer.close();
                           } catch (IOException ex) {
                             ex.printStackTrace();
@@ -357,7 +368,7 @@ public class SubastaManager {
                                         try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
                                             writer.write(cliente1.getName() + " ha incrementado el precio a: "
-                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                             writer.close();
                                           } catch (IOException ex) {
                                             ex.printStackTrace();
@@ -365,7 +376,7 @@ public class SubastaManager {
                                           try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
                                             writer.write(cliente1.getName() + " ha incrementado el precio a: "
-                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                             writer.close();
                                           } catch (IOException ex) {
                                             ex.printStackTrace();
@@ -406,7 +417,7 @@ public class SubastaManager {
                                 mensaje("Se ha inscrito al item");
                                 try {
                                     BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
-                                    writer.write("Se ha inscrito al item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                                    writer.write("Se ha inscrito al item " + chBox.getValue() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                     writer.close();
                                   } catch (IOException ex) {
                                     ex.printStackTrace();
@@ -432,7 +443,7 @@ public class SubastaManager {
                         mensaje("Se ha inscrito a la subasta");
                         try {
                             BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
-                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                             writer.close();
                           } catch (IOException ex) {
                             ex.printStackTrace();
@@ -460,7 +471,7 @@ public class SubastaManager {
                                         try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
                                             writer.write(cliente1.getName() + " ha incrementado el precio a: "
-                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                             writer.close();
                                           } catch (IOException ex) {
                                             ex.printStackTrace();
@@ -468,7 +479,7 @@ public class SubastaManager {
                                           try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
                                             writer.write(cliente1.getName() + " ha incrementado el precio a: "
-                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                             writer.close();
                                           } catch (IOException ex) {
                                             ex.printStackTrace();
@@ -501,14 +512,14 @@ public class SubastaManager {
                 public void handle(ActionEvent event) {
                     try {
                         if (chCliente3.getValue().equals(chBox.getValue())) {
-                            System.out.println("Pto");
+                            
     
                             if (!(chCliente3.getSelectionModel().getSelectedItem() == null)) {
                                 cliente3.setInscritoItem(true);
                                 mensaje("Se ha inscrito al item");
                                 try {
                                     BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
-                                    writer.write("Se ha inscrito al item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                                    writer.write("Se ha inscrito al item " + chBox.getValue() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                     writer.close();
                                   } catch (IOException ex) {
                                     ex.printStackTrace();
@@ -532,7 +543,7 @@ public class SubastaManager {
                         mensaje("Se ha inscrito a la subasta");
                         try {
                             BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
-                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                             writer.close();
                           } catch (IOException ex) {
                             ex.printStackTrace();
@@ -560,7 +571,7 @@ public class SubastaManager {
                                         try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
                                             writer.write(cliente1.getName() + " ha incrementado el precio a: "
-                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                             writer.close();
                                           } catch (IOException ex) {
                                             ex.printStackTrace();
@@ -568,7 +579,7 @@ public class SubastaManager {
                                           try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
                                             writer.write(cliente1.getName() + " ha incrementado el precio a: "
-                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + " a las " + getTime(System.currentTimeMillis()) + "\n");
                                             writer.close();
                                           } catch (IOException ex) {
                                             ex.printStackTrace();
