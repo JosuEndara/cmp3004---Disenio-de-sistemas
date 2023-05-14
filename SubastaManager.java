@@ -1,4 +1,7 @@
-
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -159,6 +162,14 @@ public class SubastaManager {
                             lbtimer.setText("00:00:00");
                             mensaje("Subasta por item " + item + " ha termiando\n" + winner + " lo ha comprado por "
                                     + mapa.get(item).getPrecioBase());
+                                    try {
+                                        BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
+                                        writer.write("Subasta por item " + item + " ha terminado\n" + winner + " lo ha comprado por "
+                                        + mapa.get(item).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                        writer.close();
+                                      } catch (IOException ex) {
+                                        ex.printStackTrace();
+                                      }
                             timerActive = false;
                             btnStart.setVisible(true);
                             chBox.getItems().remove(item);
@@ -290,6 +301,14 @@ public class SubastaManager {
                             if (!(chCliente1.getSelectionModel().getSelectedItem() == null)) {
                                 cliente1.setInscritoItem(true);
                                 mensaje("Se ha inscrito al item");
+                                try {
+                                    BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
+                                    writer.write("Se ha inscrito al item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                                    writer.close();
+                                  } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                  }
+                                
                             } else {
                                 mensajeError("No se ha ingresado subasta");
                             }
@@ -308,6 +327,13 @@ public class SubastaManager {
                     if (cliente1.getInscritoItem()) {
                         cliente1.setInscritoSubasta(true);
                         mensaje("Se ha inscrito a la subasta");
+                        try {
+                            BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
+                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                            writer.close();
+                          } catch (IOException ex) {
+                            ex.printStackTrace();
+                          }
                     } else {
                         mensajeError("Primero tiene que inscribirse a un item");
                     }
@@ -328,6 +354,22 @@ public class SubastaManager {
                                         + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
                                 logC3.appendText(cliente1.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
+                                        try {
+                                            BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
+                                            writer.write(cliente1.getName() + " ha incrementado el precio a: "
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            writer.close();
+                                          } catch (IOException ex) {
+                                            ex.printStackTrace();
+                                          }
+                                          try {
+                                            BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
+                                            writer.write(cliente1.getName() + " ha incrementado el precio a: "
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            writer.close();
+                                          } catch (IOException ex) {
+                                            ex.printStackTrace();
+                                          }
                                 winner = cliente1.getName();
 
                             }
@@ -362,6 +404,13 @@ public class SubastaManager {
                             if (!(chCliente2.getSelectionModel().getSelectedItem() == null)) {
                                 cliente2.setInscritoItem(true);
                                 mensaje("Se ha inscrito al item");
+                                try {
+                                    BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
+                                    writer.write("Se ha inscrito al item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                                    writer.close();
+                                  } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                  }
                             } else {
                                 mensajeError("No se ha ingresado subasta");
                             }
@@ -381,6 +430,13 @@ public class SubastaManager {
                     if (cliente2.getInscritoItem()) {
                         cliente2.setInscritoSubasta(true);
                         mensaje("Se ha inscrito a la subasta");
+                        try {
+                            BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
+                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                            writer.close();
+                          } catch (IOException ex) {
+                            ex.printStackTrace();
+                          }
                     } else {
                         mensajeError("Primero tiene que inscribirse a un item");
                     }
@@ -401,6 +457,22 @@ public class SubastaManager {
                                         + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
                                 logC3.appendText(cliente2.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
+                                        try {
+                                            BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
+                                            writer.write(cliente1.getName() + " ha incrementado el precio a: "
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            writer.close();
+                                          } catch (IOException ex) {
+                                            ex.printStackTrace();
+                                          }
+                                          try {
+                                            BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
+                                            writer.write(cliente1.getName() + " ha incrementado el precio a: "
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            writer.close();
+                                          } catch (IOException ex) {
+                                            ex.printStackTrace();
+                                          }
                                 winner = cliente2.getName();
                             }
                         } catch (Exception e) {
@@ -434,6 +506,13 @@ public class SubastaManager {
                             if (!(chCliente3.getSelectionModel().getSelectedItem() == null)) {
                                 cliente3.setInscritoItem(true);
                                 mensaje("Se ha inscrito al item");
+                                try {
+                                    BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
+                                    writer.write("Se ha inscrito al item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                                    writer.close();
+                                  } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                  }
                             } else {
                                 mensajeError("No se ha ingresado subasta");
                             }
@@ -451,6 +530,13 @@ public class SubastaManager {
                     if (cliente3.getInscritoItem()) {
                         cliente3.setInscritoSubasta(true);
                         mensaje("Se ha inscrito a la subasta");
+                        try {
+                            BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
+                            writer.write("Se ha inscrito a la subasta del item " + chBox.getValue() + "a las " + System.currentTimeMillis() + "\n");
+                            writer.close();
+                          } catch (IOException ex) {
+                            ex.printStackTrace();
+                          }
                     } else {
                         mensaje("Primero tiene que inscribirse a un item");
                     }
@@ -471,7 +557,24 @@ public class SubastaManager {
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
                                 logC3.appendText(cliente3.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
+                                        try {
+                                            BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
+                                            writer.write(cliente1.getName() + " ha incrementado el precio a: "
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            writer.close();
+                                          } catch (IOException ex) {
+                                            ex.printStackTrace();
+                                          }
+                                          try {
+                                            BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
+                                            writer.write(cliente1.getName() + " ha incrementado el precio a: "
+                                            + mapa.get(chCliente1.getValue()).getPrecioBase() + "a las " + System.currentTimeMillis() + "\n");
+                                            writer.close();
+                                          } catch (IOException ex) {
+                                            ex.printStackTrace();
+                                          }
                                 winner = cliente3.getName();
+                                
                                 // logC1.setText("Precio a Competir: " +
                                 // mapa.get(chCliente3.getValue()).getPrecioBase());
                             }
