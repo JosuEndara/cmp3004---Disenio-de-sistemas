@@ -162,6 +162,9 @@ public class SubastaManager {
             timer = new Timer();
             activateClients();
             btnStart.setVisible(false);
+            btnIngresarC1.setVisible(false);
+            btnIngresarC2.setVisible(false);
+            btnIngresarC3.setVisible(false);
             timer.schedule(new TimerTask() {
                 int remainingSeconds = mapa.get(item).getTiempo();
 
@@ -183,6 +186,9 @@ public class SubastaManager {
                                       }
                             timerActive = false;
                             btnStart.setVisible(true);
+                            btnIngresarC1.setVisible(true);
+                            btnIngresarC2.setVisible(true);
+                            btnIngresarC3.setVisible(true);
                             chBox.getItems().remove(item);
                             chCliente1.getItems().remove(item);
                             chCliente2.getItems().remove(item);
@@ -197,6 +203,7 @@ public class SubastaManager {
                         cliente1.restore();
                         cliente2.restore();
                         cliente3.restore();
+                        
 
                     } else {
                         remainingSeconds--;
