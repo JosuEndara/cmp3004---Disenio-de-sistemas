@@ -13,7 +13,7 @@
       <TextField fx:id="txtProducto" layoutX="87.0" layoutY="61.0" />
       <TextField fx:id="txtPrecioBase" layoutX="86.0" layoutY="94.0" />
       <TextField fx:id="txtTiempo" layoutX="87.0" layoutY="127.0" />
-      <Button layoutX="135.0" layoutY="168.0" mnemonicParsing="false" onAction="#ingresarItem" text="ADD" />
+      <Button layoutX="135.0" layoutY="168.0" mnemonicParsing="false" onAction="#ingresarItem" text="Agregar" />
       <Label layoutX="22.0" layoutY="65.0" text="Producto" />
       <Label layoutX="22.0" layoutY="98.0" text="Precio Base" />
       <Label layoutX="22.0" layoutY="131.0" text="Tiempo" />
