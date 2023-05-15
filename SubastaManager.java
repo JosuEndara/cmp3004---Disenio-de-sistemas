@@ -171,7 +171,7 @@ public class SubastaManager {
                         timer.cancel();
                         Platform.runLater(() -> {
                             lbtimer.setText("00:00:00");
-                            mensaje("Subasta por item " + item + " ha termiando\n" + winner + " lo ha comprado por "
+                            mensaje("Subasta por item " + item + " ha terminado\n" + winner + " lo ha comprado por "
                                     + mapa.get(item).getPrecioBase());
                                     try {
                                         BufferedWriter writer = new BufferedWriter(new FileWriter("manager.txt", true));
@@ -359,11 +359,11 @@ public class SubastaManager {
                             if (!mapa.get(chCliente1.getValue()).modificarPrecio(value)) {
                                 logC1.appendText("el valor no es superior al aceptado \n");
                             } else {
-                                logC1.appendText(cliente1.getName() + " ha incrementado el precio a: "
+                                logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+ cliente1.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
-                                logC2.appendText(cliente1.getName() + " ha incrementado el precio a: "
+                                logC2.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente1.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
-                                logC3.appendText(cliente1.getName() + " ha incrementado el precio a: "
+                                logC3.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente1.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
                                         try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("client1.txt", true));
@@ -462,11 +462,11 @@ public class SubastaManager {
                             if (!mapa.get(chCliente2.getValue()).modificarPrecio(value)) {
                                 logC2.appendText("el valor no es superior al aceptado\n");
                             } else {
-                                logC1.appendText(cliente2.getName() + " ha incrementado el precio a: "
+                                logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente2.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
-                                logC2.appendText(cliente2.getName() + " ha incrementado el precio a: "
+                                logC2.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente2.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
-                                logC3.appendText(cliente2.getName() + " ha incrementado el precio a: "
+                                logC3.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente2.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
                                         try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("client2.txt", true));
@@ -562,11 +562,11 @@ public class SubastaManager {
                             if (!mapa.get(chCliente3.getValue()).modificarPrecio(value)) {
                                 logC3.appendText("el valor no es superior al aceptado\n");
                             } else { 
-                                logC1.appendText(cliente3.getName() + " ha incrementado el precio a: "
+                                logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente3.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
-                                logC2.appendText(cliente3.getName() + " ha incrementado el precio a: "
+                                logC2.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente3.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
-                                logC3.appendText(cliente3.getName() + " ha incrementado el precio a: "
+                                logC3.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente3.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
                                         try {
                                             BufferedWriter writer = new BufferedWriter(new FileWriter("client3.txt", true));
