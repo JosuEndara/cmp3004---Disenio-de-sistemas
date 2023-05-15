@@ -357,7 +357,7 @@ public class SubastaManager {
                         try {
                             double value = Double.parseDouble(ApuestaC1.getText());
                             if (!mapa.get(chCliente1.getValue()).modificarPrecio(value)) {
-                                logC1.appendText("el valor no es superior al aceptado \n");
+                                logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+"el valor no es superior al aceptado \n");
                             } else {
                                 logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+ cliente1.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente1.getValue()).getPrecioBase() + "\n");
@@ -460,7 +460,7 @@ public class SubastaManager {
                         try {
                             double value = Double.parseDouble(ApuestaC2.getText());
                             if (!mapa.get(chCliente2.getValue()).modificarPrecio(value)) {
-                                logC2.appendText("el valor no es superior al aceptado\n");
+                                logC2.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+"el valor no es superior al aceptado\n");
                             } else {
                                 logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente2.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente2.getValue()).getPrecioBase() + "\n");
@@ -560,7 +560,7 @@ public class SubastaManager {
                         try {
                             double value = Double.parseDouble(ApuestaC3.getText());
                             if (!mapa.get(chCliente3.getValue()).modificarPrecio(value)) {
-                                logC3.appendText("el valor no es superior al aceptado\n");
+                                logC3.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+"el valor no es superior al aceptado\n");
                             } else { 
                                 logC1.appendText("Hora: ["+ getTime(System.currentTimeMillis())+"] "+cliente3.getName() + " ha incrementado el precio a: "
                                         + mapa.get(chCliente3.getValue()).getPrecioBase() + "\n");
